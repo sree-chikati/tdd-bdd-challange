@@ -72,13 +72,34 @@ it("Should create a new (object) Item with name and price", function() {
   expect(item).to.have.property("quantity", 1)
 })
 
-it("Should return an array containing all items in cart")
+it("Should return an array containing all items in cart", function() {
+  const cart = utils.getShoppingCart()
+  expect(cart).to.be.a("array")
+  expect(cart.length).to.be.equal(0)
+})
 
-it("Should add a new item to the shopping cart")
+it("Should add a new item to the shopping cart", function() {
+  const apple = utils.createItem("apple", 0.99)
+  utils.addItemToCart(apple)
+  const cart = utils.getShoppingCart()
+  expect(cart).to.be.a("array")
+  expect(cart.length).to.be.equal(1)
+})
 
-it("Should return the number of items in the cart")
+it("Should return the number of items in the cart", function() {
+  const num_items = utils.getNumItemsInCart()
+  expect(num_items).to.be.a("number")
+  expect(num_items).to.be.at.least(0)
+})
 
-it("Should remove items from cart")
+it("Should remove items from cart", function() {
+  const num_items = utils.getNumItemsInCart()
+  const apple = utils.createItem("apple", 0.99)
+  utils.addItemToCart(apple)
+  utils.removeItemFromCart(apple)
+  expect(num_items).to.be.equal(0)
+  expect(utils.removeItemFromCart(apple)).to.be.equal("No item located")
+})
 
 // ========================================================
 // Stretch Challenges

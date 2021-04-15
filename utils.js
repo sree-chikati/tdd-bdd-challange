@@ -41,19 +41,24 @@ const createItem = (name, price) => {
 }
 
 const getShoppingCart = () => {
-  // should return the current state of shopping cart
+  return shoppingCart
 }
 
 const addItemToCart = (item) => {
-  // should add item to shopping cart
+  shoppingCart.push(item)
 }
 
 const getNumItemsInCart = () => {
-  // should return the total quantity of items in cart
+  return shoppingCart.length
 }
 
 const removeItemFromCart = (item) => {
-  // should remove item from shopping cart
+  if (shoppingCart.length === 0 || !shoppingCart.includes(item)) {
+    return "No item located"
+  }
+  else {
+    shoppingCart.splice(item, 1)
+  }
 }
 
 module.exports = {
