@@ -26,8 +26,10 @@ it("should say hello", function() {
 // This is called "Red-Green-Refactor"
 // ========================================================
 
-
-
+//pending tests
+it("should return the area of a rectangle given the width and height")
+it("return the perimeter of a rectangle given the values")
+it("return the area of a circle with radius given the radius")
 
 // ========================================================
 // Level 2 Challenges
