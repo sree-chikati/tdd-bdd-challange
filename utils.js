@@ -2,20 +2,25 @@
 // Level 1 Challenges
 // ========================================================
 
+const { interfaces } = require("mocha")
+
 const sayHello = () => {
   return "Hello"
 }
 
 const area = (w, h) => {
   // should return the area
+  return Number(w*h)
 }
 
 const perimeter = (w, h) => {
   // should return the perimeter
+  return Number((h + w) * 2)
 }
 
 const circleArea = r => {
   // should return the area of the circle
+  return Number(Math.pow(r, 2) * 3.14)
 }
 
 // ========================================================

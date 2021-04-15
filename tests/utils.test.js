@@ -29,24 +29,24 @@ it("should say hello", function() {
 
 // it("should return the area of a rectangle given the width and height")
 it("should return the area of a rectangle", function() {
-  const rect_area = utils.area(3, 5)
-  expect(rect_area).to.be.a("integer")
+  const rect_area = utils.area(10, 5)
+  expect(rect_area).to.be.a("number")
   expect(rect_area).to.be.at.least(0)
-  expect(rect_area).to.equal(15)
+  expect(rect_area).to.equal(50)
 })
 
 // it("return the perimeter of a rectangle given the values")
 it("return the perimeter of a rectangle", function() {
   const rect_perimeter = utils.perimeter(10, 5)
-  expect(rect_perimeter).to.be.a("integer")
+  expect(rect_perimeter).to.be.a("number")
   expect(rect_perimeter).to.be.at.least(0)
-  expect(rect_perimeter).to.equal(15)
+  expect(rect_perimeter).to.equal(30)
 })
 
 // it("return the area of a circle with radius given the radius")
 it("return the area of a circle with radius", function() {
   const circ_area = utils.circleArea(10)
-  expect(circ_area).to.be.a("integer")
+  expect(circ_area).to.be.a("number")
   expect(circ_area).to.be.at.least(0)
   expect(circ_area).to.equal(314)
 })
