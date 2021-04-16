@@ -105,8 +105,43 @@ it("Should remove items from cart", function() {
 // Stretch Challenges
 // ========================================================
 
-it("Should update the count of items in the cart")
+it("Should update the count of items in the cart", function() {
+  const apple = utils.createItem("apple", 0.99)
 
-it("Should validate that an empty cart has 0 items")
+  utils.addItemToCart(apple)
+  utils.addItemToCart(apple)
+  expect(utils.getNumItemsInCart()).to.be.equal(2)
 
-it("Should return the total cost of all items in the cart")
+  utils.addItemToCart(apple)
+  expect(utils.getNumItemsInCart()).to.be.equal(3)
+
+  utils.removeItemFromCart(apple)
+  expect(utils.getNumItemsInCart()).to.be.equal(2)
+})
+
+it("Should validate that an empty cart has 0 items", function() {
+  const apple = utils.createItem("apple", 0.99)
+  expect(utils.isCartEmpty()).to.be.a("boolean")
+
+  utils.addItemToCart(apple)
+  expect(utils.isCartEmpty()).to.be.false
+
+  utils.removeItemFromCart(apple)
+  expect(utils.isCartEmpty()).to.be.true
+
+})
+
+it("Should return the total cost of all items in the cart", function() {
+  const apple = utils.createItem("apple", 0.99)
+  const orange = utils.createItem("orange", 1.50)
+  utils.addItemToCart(apple)
+  utils.addItemToCart(orange)
+
+  expect(utils.itemTotal()).to.be.a("number")
+  expect(utils.itemTotal()).to.be.at.least(0)
+  expect(utils.itemTotal()).to.be.equal(2.49)
+
+  utils.addItemToCart(orange)
+  utils.addItemToCart(orange)
+  expect(utils.itemTotal()).to.be.equal(5.49)
+})

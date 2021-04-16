@@ -61,8 +61,22 @@ const removeItemFromCart = (item) => {
   }
 }
 
+const isCartEmpty = () => {
+  return getNumItemsInCart() === 0 && shoppingCart.length === 0
+}
+
+const itemTotal = () => {
+  let cost = 0
+  if (shoppingCart.length > 0) {
+      shoppingCart.forEach((item) => {
+          cost += item.quantity * item.price
+      })
+  }
+  return Number(cost.toFixed(2))
+}
+
 module.exports = {
   sayHello, area, perimeter, circleArea,
   clearCart, createItem, getShoppingCart, addItemToCart,
-  getNumItemsInCart, removeItemFromCart
+  getNumItemsInCart, removeItemFromCart, isCartEmpty, itemTotal
 }
